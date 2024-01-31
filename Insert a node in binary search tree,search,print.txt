@@ -1,0 +1,120 @@
+#Insert a node in binary search tree 
+#Insert a node in binary search tree ,search and show
+class Node:
+    def __init__(self,x):
+        self.data=x
+        self.left=None
+        self.right=None
+    def insert(self,x):
+        if self.data==None:
+            self.data=x
+            return
+        if self.data>x:
+            if self.left==None:
+                self.left=Node(x)
+            else:
+                self.left.insert(x)
+        else:
+            if self.right==None:
+                self.right=Node(x)
+            else:
+                self.right.insert(x)
+    def show(self):
+        if self.left:
+            self.left.show()
+        print(self.data,end=" ")
+        if self.right:
+            self.right.show()
+    def search(self,x):
+        if self.data==x:
+            print("node is found")
+            return
+        if self.data>x:
+            if self.left:
+                self.left.search(x)
+            else:
+                print("node is not found")
+        else:
+            if self.right:
+                self.right.search(x)
+            else:
+                print("node is not found")
+root=Node(50)            
+while True:
+    print()
+    print("1.Insert\n2.show\n3.search\n4.exit")
+    ch=int(input("enter your choice"))
+    if ch==1:
+        x=int(input("enter an element to be insert"))
+        root.insert(x)
+    elif ch==2:
+        root.show()
+    elif ch==3:
+        x=int(input("enter an element to be search"))
+        root.search(x)
+    elif ch==4:
+        break
+    else:
+        print("invalid input")
+
+
+
+
+output:_
+1.Insert
+2.show
+3.search
+4.exit
+enter your choice1
+enter an element to be insert50
+
+1.Insert
+2.show
+3.search
+4.exit
+enter your choice1
+enter an element to be insert30
+
+1.Insert
+2.show
+3.search
+4.exit
+enter your choice1
+enter an element to be insert36
+
+1.Insert
+2.show
+3.search
+4.exit
+enter your choice1
+enter an element to be insert60
+
+1.Insert
+2.show
+3.search
+4.exit
+enter your choice1
+enter an element to be insert46
+
+1.Insert
+2.show
+3.search
+4.exit
+enter your choice2
+30 36 46 50 50 60 
+1.Insert
+2.show
+3.search
+4.exit
+enter your choice3
+enter an element to be search60
+node is found
+
+1.Insert
+2.show
+3.search
+4.exit
+enter your choice70 3  3
+enter an element to be search70
+node is not found
+
